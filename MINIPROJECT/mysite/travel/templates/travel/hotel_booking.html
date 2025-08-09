@@ -1,0 +1,37 @@
+{% extends 'travel/base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="max-width:800px; margin:2rem auto; padding:2rem;">
+    <h2 style="text-align:center;">Hotel Booking</h2>
+
+    <form method="get" style="text-align:center; margin-bottom:20px;">
+
+        <label>Select City: </label>
+        <select name="city" onchange="this.form.submit()" style="padding:8px 12px; border-radius:6px;">
+            {% for city in cities %}
+                <option value="{{ city }}" {% if city == selected_city %}selected{% endif %}>
+                    {{ city }}
+                </option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+        {% for hotel in hotels %}
+            <div style="width:260px; background:linear-gradient(to right, #f9f9f9, #e6f2ff); padding:15px; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1);">
+                <h3>{{ hotel.name }}</h3>
+                <p><strong>📍 Location:</strong> {{ hotel.location }}</p>
+                <p><strong>💰 Price:</strong> {{ hotel.price }}</p>
+                <p><strong>⭐ Rating:</strong> {{ hotel.rating }}</p>
+                <a href="{% url 'hotel_details' selected_city hotel.name|urlencode %}" style="display:inline-block; margin-top:10px; background:#001f3f; color:#fff; padding:8px 12px; border-radius:5px; text-decoration:none;">View Details / Book</a>
+
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+

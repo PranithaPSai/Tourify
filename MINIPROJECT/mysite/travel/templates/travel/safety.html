@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Safety</title>
+    <link rel="stylesheet" href="{% static 'travel/css/styles.css' %}">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffe0e9, #d0e8f2);
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        section {
+            margin-top: 2rem;
+        }
+
+        .helpline-card {
+            background-color: #f9fafb;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-left: 5px solid #34495e;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .helpline-card h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #34495e;
+        }
+
+        .helpline-card p {
+            margin: 4px 0 0;
+            font-size: 0.95rem;
+        }
+
+        #sosButton {
+            display: inline-block;
+            margin: 1rem auto;
+            padding: 12px 20px;
+            background-color: #25D366;
+            color: white;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: background 0.3s ease;
+        }
+
+        #sosButton:hover {
+            background-color: #1ebd5a;
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Women's Safety Tips & Emergency</h1>
+
+        <section>
+            <h2>📞 Important Helpline Numbers</h2>
+
+            <div class="helpline-card">
+                <h4>🚨 Women’s Helpline (All India)</h4>
+                <p>📱 1091</p>
+            </div>
+            <div class="helpline-card">
+                <h4>👮 Police Emergency</h4>
+                <p>📱 100</p>
+            </div>
+            <div class="helpline-card">
+                <h4>🚑 Ambulance</h4>
+                <p>📱 102 / 108</p>
+            </div>
+            <div class="helpline-card">
+                <h4>👩‍⚕️ National Commission for Women</h4>
+                <p>📱 7827170170</p>
+            </div>
+        </section>
+
+        <section class="center">
+            <h2>📍 Send WhatsApp SOS</h2>
+            <p>Click the button below to alert your emergency contact with your live location.</p>
+
+            <a id="sosButton" href="#" target="_blank">🚨 Send WhatsApp Alert</a>
+        </section>
+    </div>
+
+    <script>
+        // Function to get location and update the WhatsApp link
+        function updateWhatsAppLink() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    const mapsLink = `https://maps.google.com/?q=${lat},${lon}`;
+                    const message = `I am in trouble, please help me. Here’s my current location: ${mapsLink}`;
+                    const encodedMessage = encodeURIComponent(message);
+                    const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
+                    document.getElementById("sosButton").href = whatsappURL;
+                }, function(error) {
+                    alert("Unable to retrieve your location. Please check your permissions.");
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        // Auto-run on page load
+        window.onload = updateWhatsAppLink;
+    </script>
+</body>
+</html>

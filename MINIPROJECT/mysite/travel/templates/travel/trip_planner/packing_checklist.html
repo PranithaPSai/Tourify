@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Packing Checklist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #003366;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .category {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .category h3 {
+            color: #003366;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+            accent-color: #003366;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h2>✈️ Travel Packing Checklist</h2>
+
+<div class="container">
+    <div class="category">
+        <h3>Essentials</h3>
+        <ul>
+            <li><input type="checkbox"> Passport / ID</li>
+            <li><input type="checkbox"> Travel Tickets</li>
+            <li><input type="checkbox"> Wallet / Cards</li>
+            <li><input type="checkbox"> Phone & Charger</li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>Clothing</h3>
+        <ul>
+            <li><input type="checkbox"> T-Shirts / Tops</li>
+            <li><input type="checkbox"> Pants / Jeans</li>
+            <li><input type="checkbox"> Innerwear</li>
+            <li><input type="checkbox"> Sleepwear</li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>Accessories</h3>
+        <ul>
+            <li><input type="checkbox"> Sunglasses</li>
+            <li><input type="checkbox"> Hat / Cap</li>
+            <li><input type="checkbox"> Umbrella</li>
+            <li><input type="checkbox"> Power Bank</li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>Shoes</h3>
+        <ul>
+            <li><input type="checkbox"> Sneakers</li>
+            <li><input type="checkbox"> Flip-flops</li>
+            <li><input type="checkbox"> Formal shoes</li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>Toiletries</h3>
+        <ul>
+            <li><input type="checkbox"> Toothbrush & Paste</li>
+            <li><input type="checkbox"> Shampoo & Soap</li>
+            <li><input type="checkbox"> Hairbrush / Comb</li>
+            <li><input type="checkbox"> Face Wash</li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>Makeup & Skincare</h3>
+        <ul>
+            <li><input type="checkbox"> Daily Makeup Kit</li>
+            <li><input type="checkbox"> Lip Balm</li>
+            <li><input type="checkbox"> Sunscreen</li>
+            <li><input type="checkbox"> Moisturizer</li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>Personal</h3>
+        <ul>
+            <li><input type="checkbox"> Sanitary Products</li>
+            <li><input type="checkbox"> Contact Lenses</li>
+            <li><input type="checkbox"> Sleep Mask / Earplugs</li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>Snacks</h3>
+        <ul>
+            <li><input type="checkbox"> Dry Fruits / Nuts</li>
+            <li><input type="checkbox"> Biscuits / Chips</li>
+            <li><input type="checkbox"> Instant Noodles</li>
+            <li><input type="checkbox"> Water Bottle</li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>Medicines</h3>
+        <ul>
+            <li><input type="checkbox"> Regular Medicines</li>
+            <li><input type="checkbox"> First Aid Kit</li>
+            <li><input type="checkbox"> Painkillers</li>
+            <li><input type="checkbox"> Motion Sickness Pills</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

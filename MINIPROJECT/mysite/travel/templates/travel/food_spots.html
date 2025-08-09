@@ -1,0 +1,39 @@
+{% extends 'travel/base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Find Nearby Food Spots</h2>
+
+<div class="google-maps-section" style="text-align: center; margin-top: 30px;">
+    <!-- Google Maps Logo & Button -->
+    <img src="{% static 'travel/images/google-maps.png' %}" alt="Google Maps" style="width: 150px; height: auto; margin-bottom: 10px;">
+    <br>
+    <button onclick="findRestaurants()" style="padding: 10px 20px; font-size: 16px; background-color: #4285F4; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Find Restaurants Near Me
+    </button>
+    <p id="location-error" style="color: red; margin-top: 10px;"></p>
+</div>
+
+<script>
+function findRestaurants() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                const mapsUrl = `https://www.google.com/maps/search/restaurants/@${lat},${lng},15z`;
+                window.open(mapsUrl, '_blank');
+            },
+            function(error) {
+                document.getElementById("location-error").textContent = "Unable to access location. Please allow location permission.";
+            }
+        );
+    } else {
+        document.getElementById("location-error").textContent = "Geolocation is not supported by this browser.";
+    }
+}
+</script>
+{% endblock %}
+
+
+

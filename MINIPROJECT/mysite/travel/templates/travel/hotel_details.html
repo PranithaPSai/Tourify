@@ -1,0 +1,29 @@
+{% extends 'travel/base.html' %}
+
+{% block content %}
+<div style="max-width:700px; margin:2rem auto; padding:2rem; background:#f0f8ff; border-radius:10px;">
+    <h2>{{ hotel.name }}</h2>
+    <p><strong>📍 Location:</strong> {{ hotel.location }}</p>
+    <p><strong>💰 Price:</strong> ₹{{ hotel.price }}</p>
+    <p><strong>⭐ Rating:</strong> {{ hotel.rating }}</p>
+    <p><strong>City:</strong> {{ city }}</p>
+
+    <form action="{% url 'confirm_booking' city hotel.name %}" method="get">
+    <button type="submit">Confirm Booking</button>
+</form>
+
+
+    <br>
+    <a href="{% url 'hotel_booking' %}" style="text-decoration:none; color:#007bff;">⬅ Back to Hotel List</a>
+</div>
+{% endblock %}
+{% if messages %}
+  <ul>
+    {% for message in messages %}
+      <li style="color:green;">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
+

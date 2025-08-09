@@ -1,0 +1,126 @@
+{% extends 'travel/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom right, #a2d4ec, #c2e9fb);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .transport-container {
+        max-width: 600px;
+        margin: 4rem auto;
+        background-color: white;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        padding: 2rem 2.5rem;
+    }
+
+    .transport-container h2 {
+        text-align: center;
+        font-size: 2rem;
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        font-weight: 600;
+        display: block;
+        margin-top: 1rem;
+        color: #34495e;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-top: 6px;
+        margin-bottom: 12px;
+        font-size: 1rem;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color: #34495e;
+        color: white;
+        font-size: 1rem;
+        border: none;
+        border-radius: 8px;
+        margin-top: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #2c3e50;
+    }
+
+    .transport-results {
+        margin-top: 2rem;
+        background-color: #f4f6f7;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .transport-results h3 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+    }
+
+    .transport-results ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .transport-results li {
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+
+    .transport-results a {
+        color: #2980b9;
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    .transport-results a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="transport-container">
+    <h2>🚍 Transport Booking</h2>
+
+    <form method="POST" class="transport-form">
+        {% csrf_token %}
+        <label for="source">Source:</label>
+        <input type="text" id="source" name="source" required>
+
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination" required>
+
+        <button type="submit">Check Options</button>
+    </form>
+
+    {% if cost_data %}
+    <section class="transport-results">
+        <h3>Estimated Transport Costs:</h3>
+        <ul>
+            <li><strong>Bus:</strong> ₹{{ cost_data.bus }}
+                <a href="https://www.redbus.in" target="_blank">Book Bus</a></li>
+            <li><strong>Train:</strong> ₹{{ cost_data.train }}
+                <a href="https://www.irctc.co.in" target="_blank">Book Train</a></li>
+            <li><strong>Flight:</strong> ₹{{ cost_data.flight }}
+                <a href="https://www.makemytrip.com/flights/" target="_blank">Book Flight</a></li>
+        </ul>
+    </section>
+    {% endif %}
+</div>
+{% endblock %}

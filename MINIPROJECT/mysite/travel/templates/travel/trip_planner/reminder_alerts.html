@@ -1,0 +1,61 @@
+{% extends 'travel/base.html' %}
+{% block content %}
+<h2>Reminder Alerts</h2>
+<p>Set reminders for important travel events.</p>
+
+<form method="post">
+    {% csrf_token %}
+    <label>Reminder Title:</label><input type="text" name="title"><br>
+    <label>Date & Time:</label><input type="datetime-local" name="datetime"><br>
+    <button type="submit">Set Reminder</button>
+</form>
+
+<p><em>We'll notify you when it's time!</em></p>
+
+<script>
+document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const title = document.querySelector("input[name='title']").value;
+    const datetimeStr = document.querySelector("input[name='datetime']").value;
+
+    if (!title || !datetimeStr) {
+        alert("Please fill out both fields.");
+        return;
+    }
+
+    const reminderTime = new Date(datetimeStr).getTime();
+    const now = new Date().getTime();
+    const delay = reminderTime - now;
+
+    if (delay > 0) {
+        if (Notification.permission !== "granted") {
+            Notification.requestPermission().then(permission => {
+                if (permission === "granted") {
+                    setTimeout(() => {
+                        new Notification("🔔 Reminder Alert!", {
+                            body: title,
+                        });
+                    }, delay);
+
+                    alert("Reminder set! Notification will pop up at the selected time.");
+                } else {
+                    alert("Notifications are blocked. Please allow them in your browser.");
+                }
+            });
+        } else {
+            setTimeout(() => {
+                new Notification("🔔 Reminder Alert!", {
+                    body: title,
+                });
+            }, delay);
+
+            alert("Reminder set! Notification will pop up at the selected time.");
+        }
+    } else {
+        alert("Please select a future time for the reminder.");
+    }
+});
+</script>
+
+{% endblock %}

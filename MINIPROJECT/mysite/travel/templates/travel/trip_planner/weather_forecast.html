@@ -1,0 +1,20 @@
+{% extends "travel/base.html" %}
+{% load static %}
+
+{% block content %}
+  <h2>Weather Forecast</h2>
+  <form method="post">
+    {% csrf_token %}
+    <input type="text" name="city" placeholder="Enter city name" required>
+    <button type="submit">Get Weather</button>
+  </form>
+
+  {% if weather_data %}
+    <h3>Weather in {{ weather_data.city }}</h3>
+    <p>Temperature: {{ weather_data.temperature }}°C</p>
+    <p>Description: {{ weather_data.description }}</p>
+    <img src="http://openweathermap.org/img/wn/{{ weather_data.icon }}@2x.png" alt="Weather icon">
+  {% elif error %}
+    <p style="color: red;">{{ error }}</p>
+  {% endif %}
+{% endblock %}

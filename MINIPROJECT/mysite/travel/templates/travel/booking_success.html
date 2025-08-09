@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Success</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #ecf0f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .success-box {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .success-box h2 {
+            color: #27ae60;
+            margin-bottom: 15px;
+        }
+
+        .success-box p {
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .success-box a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .success-box a:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-box">
+        <h2>Booking Confirmed ✅</h2>
+        <a href="{% url 'hotel_booking' %}">Back to Hotel Listings</a>
+    </div>
+</body>
+</html>

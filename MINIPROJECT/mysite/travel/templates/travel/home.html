@@ -1,0 +1,59 @@
+{% extends 'travel/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="dashboard">
+
+    <div class="icon-card" id="tripPlannerCard">
+        <img src="{% static 'travel/images/trip-planner.png' %}" alt="Trip Planner">
+        <p>Trip Planner</p>
+    </div>
+
+    <div class="icon-card" id="transportBookingCard">
+        <img src="{% static 'travel/images/transport.png' %}" alt="Transport Booking">
+        <p>Transport Booking</p>
+    </div>
+
+    <div class="icon-card" id="hotelBookingCard">
+        <img src="{% static 'travel/images/hotel.png' %}" alt="Hotel Booking">
+        <p>Hotel Booking</p>
+    </div>
+
+    <div class="icon-card" id="foodSpotsCard">
+        <img src="{% static 'travel/images/food.png' %}" alt="Local Food Spots">
+        <p>Local Food Spots</p>
+    </div>
+
+    <div class="icon-card" id="budgetSplitCard">
+        <img src="{% static 'travel/images/budget.png' %}" alt="Budget Split">
+        <p>Budget Split</p>
+    </div>
+
+    <div class="icon-card" id="safetyCard">
+        <img src="{% static 'travel/images/safety.png' %}" alt="Women’s Safety">
+        <p>Women’s Safety</p>
+    </div>
+
+</section>
+
+<script>
+    document.getElementById("tripPlannerCard").onclick = function() {
+        window.location.href = "{% url 'trip_planner' %}";
+    };
+    document.getElementById("transportBookingCard").onclick = function() {
+        window.location.href = "{% url 'transport_booking' %}";
+    };
+    document.getElementById("hotelBookingCard").onclick = function() {
+        window.location.href = "{% url 'hotel_booking' %}";
+    };
+    document.getElementById("foodSpotsCard").onclick = function() {
+        window.location.href = "{% url 'food_spots' %}";
+    };
+    document.getElementById("budgetSplitCard").onclick = function() {
+        window.location.href = "{% url 'budget_split' %}";
+    };
+    document.getElementById("safetyCard").onclick = function() {
+        window.location.href = "{% url 'safety' %}";
+    };
+</script>
+{% endblock %}

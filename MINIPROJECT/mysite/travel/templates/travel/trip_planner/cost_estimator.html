@@ -1,0 +1,26 @@
+{% extends 'travel/base.html' %}
+{% block content %}
+<h2>Cost Estimator</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <label>Transport Cost: </label><input type="number" name="transport"><br>
+    <label>Hotel Cost: </label><input type="number" name="hotel"><br>
+    <label>Food Cost: </label><input type="number" name="food"><br>
+    <label>Extras: </label><input type="number" name="extras"><br>
+    <label>Destination: </label><input type="text" name="location"><br>
+    <button type="submit">Estimate</button>
+</form>
+
+{% if total_cost is not None %}
+    <h3>Total Estimated Cost: ₹{{ total_cost }}</h3>
+    <p>Breakdown:</p>
+    <ul>
+        <li>Transport: ₹{{ transport }}</li>
+        <li>Hotel: ₹{{ hotel }}</li>
+        <li>Food: ₹{{ food }}</li>
+        <li>Extras: ₹{{ extras }}</li>
+        <li>Location-based Cost ({{ location }}): ₹{{ location_cost }}</li>
+    </ul>
+{% endif %}
+{% endblock %}
