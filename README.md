@@ -4,45 +4,45 @@ Tourify is a smart travel planning web app that automates itineraries, estimates
 ## Key Features
 🗺 Trip Planner
 
-Users enter source and destination
+-Users enter source and destination
 
-Auto-generated itinerary and day-wise schedule
+-Auto-generated itinerary and day-wise schedule
 
-Activity suggestions based on city type (beach, hill station, city)
+-Activity suggestions based on city type (beach, hill station, city)
 
-Weather insights and travel tips
+-Weather insights and travel tips
 
 🚖 Transport Booking
 
-Lists transport options like local cabs, buses, metro routes, etc.
+-Lists transport options like local cabs, buses, metro routes, etc.
 
-Quick navigation to service providers
+-Quick navigation to service providers
 
 🏨 Hotel Booking
 
-City-wise dummy hotel listings
+-City-wise dummy hotel listings
 
-Detailed view for each hotel
+-Detailed view for each hotel
 
-Simple in-app booking confirmation
+-Simple in-app booking confirmation
 
 🍽 Food Spots
 
-Lists popular restaurants and cafés in major Indian cities
+-Lists popular restaurants and cafés in major Indian cities
 
-Includes ratings, location, and cuisine category
+-Includes ratings, location, and cuisine category
 
 💰 Budget Splitter
 
-Helps users calculate and split total trip cost among group members
+-Helps users calculate and split total trip cost among group members
 
 🛡 Women’s Safety Module
 
-Displays nearby police stations and emergency numbers
+-Displays nearby police stations and emergency numbers
 
-Safety guidelines and quick-access helplines
+-Safety guidelines and quick-access helplines
 
-Quick alert message forwarding through whatsapp
+-Quick alert message forwarding through whatsapp
 
 ## Tech Stack
 
